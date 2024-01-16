@@ -19,7 +19,7 @@ public class SampleController {
 
     private final SampleService sampleService;
     private final LogDemoService logDemoService;
-    private final ObjectProvider<MyLogger> myLoggerProvider;
+    private final MyLogger myLogger;
 
     @PostMapping("/sample/new")
     public Long create(Sample sample) {
@@ -30,9 +30,8 @@ public class SampleController {
     @ResponseBody
     public String logDemo(HttpServletRequest request) {
         String requestURL = request.getRequestURL().toString();
-        MyLogger myLogger = myLoggerProvider.getObject();
-        myLogger.setRequestURL(requestURL);
 
+        myLogger.setRequestURL(requestURL);
         myLogger.log("Controller test");
         logDemoService.logic("testID");
 
