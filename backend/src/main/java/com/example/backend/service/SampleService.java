@@ -12,7 +12,6 @@ public class SampleService {
 
     private final SampleRepository sampleRepository;
 
-    @Autowired
     public SampleService(SampleRepository sampleRepository) {
         this.sampleRepository = sampleRepository;
     }

@@ -2,17 +2,15 @@ package com.example.backend.repository;
 
 import com.example.backend.domain.Sample;
 import jakarta.persistence.EntityManager;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
+@RequiredArgsConstructor
 public class SampleRepository {
     private final EntityManager em;
-
-    public SampleRepository(EntityManager em) {
-        this.em = em;
-    }
 
     public void save(Sample sample) {
         em.persist(sample);
